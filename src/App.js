@@ -9,8 +9,8 @@ const App = () => {
         { name: 'Tomasz Wietrzyk', points: 1 },
         { name: 'Dorota Wietrzyk', points: 2 },
         { name: 'Jakub Wietrzyk', points: 123 },
-        { name: 'Mateusz Wietrzyk', points: 12 },
         { name: 'Milosz Wietrzyk', points: 1234 },
+        { name: 'Mateusz Wietrzyk', points: 12 }
     ])
 
     const handlePlayerAdd = (name, points) => {
