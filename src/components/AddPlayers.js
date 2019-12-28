@@ -1,3 +1,4 @@
+
 import React from "react";
 
 class AddPlayer extends React.Component {
@@ -6,6 +7,14 @@ class AddPlayer extends React.Component {
         points: '0'
     }
     render() {
+        const isPlayerNameUnique = name => {
+            for (let i = 0; i < this.props.list.length; i++) {
+                if (this.props.list[i].name === name) {
+                    return false
+                }
+            }
+            return true
+        }
         return (
             <>
                 <input type="text" value={this.state.name} placeholder="Player name" onChange={event => {
@@ -18,8 +27,14 @@ class AddPlayer extends React.Component {
                     if (!this.state.name) {
                         alert('Please enter player name!')
                         return
+                    } else if (!isPlayerNameUnique(this.state.name)) {
+                        alert('Please enter unique player name!')
+                        return
+                    } else if (!this.state.points || parseInt(this.state.points) < 0) {
+                        alert("please enter valid number of points")
+                        return
                     }
-                    this.props.onPlayerAdd(this.state.name, this.state.points)
+                    this.props.onPlayerAdd(this.state.name, parseInt(this.state.points))
                     this.setState({ name: '', points: '0' })
                 }}>Submit to Us</button>
             </>
