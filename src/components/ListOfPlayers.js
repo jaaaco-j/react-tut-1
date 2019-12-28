@@ -12,7 +12,7 @@ const ListOfPlayers = ({ onDelete, list }) => (
             })}
             </ol> 
         ) : (
-            <p> The List is empty! </p>
+            <p>The List is empty!</p>
         )
         }
     </>
